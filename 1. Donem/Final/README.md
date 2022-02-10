@@ -1,0 +1,2 @@
+
+Bu kısımda da sizlere 1. dönemde verilen final ödevimi göstereceğim. Finali Hackernet sitesi üzerinden gerçekleştirdik. 5 adet soru soruldu ve bunları size fotoğrafla gösterdim. Kod kısmına geldiğinde de anaconda, visual studio gibi kısımlarda kodun nasıl çalıştığını görmeniz adına listeleri kodlanmış halde sizlere verdim final anında listeler Hackernet üzerine tanımlanmıştı bu yüzden biz yazarsak kod hata verecekti.
