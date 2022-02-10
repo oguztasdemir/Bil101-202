@@ -1,0 +1,333 @@
+"""
+author: Oğuz Taşdemir
+Üniversite: Istanbul Medeniyet Univercity
+Bölüm: Math - I
+Konu: Lab - Vize
+"""
+
+import random
+import sys
+
+o1_puan = 0
+o2_puan = 0
+pc_puan = 0 
+o1_tur_puan = 0
+o2_tur_puan = 0
+pc_tur_puan = 0
+zar = 0
+a = 1
+b = 1
+c = 1
+d = 1
+    
+print("100 Puanlık Zar'a Hoş geldiniz!")
+print("")
+mod=input("Bilgisayara karşı oynamak istiyorsanız (1) \n2 kişilik modda oynamak istiyorsanız (2) \n1 kişilik modda oynamak istiyorsanız (3) \nKurallar kısmını görmek istiyorsanız (4)")
+print("_____________________________________________________________________________")
+
+başla=input("Oyuna başlamak veya kuralları okumak için (y)")
+
+
+#############################################################
+#1. Mod: Bilgisayara karşı oyun 
+
+if mod=="1" or mod=="bir":    
+
+#1. Oyuncu hamleleri:
+ if başla=="y" or başla=="Y":  
+    while c==1:
+     zar=0
+     o1_tur_puan=0
+     d=1
+     while zar!=1 and d==1:
+       zar=random.randint(1, 6)
+       if zar!=1:
+        o1_tur_puan=zar+o1_tur_puan   
+        print("")
+        print("Attığınız zar:", zar)
+        print("Şuana kadar bu turda şu kadar puan topladınız: ", o1_tur_puan)
+        başla=input("Zar atmaya devam etmek istiyorsan (y) \nBu tur kazandığınız puanları alıp zar atma sırasının bilgisayara geçmesini istiyorsanız (n)")
+        if başla=="y" or başla=="Y": 
+         d=1
+        else:
+         d=0
+       else:
+         o1_tur_puan=0
+         print("")
+         print("Attığınız zar 1 geldi. Bu tur puan kazanamadınız. Sıra bilgisayarda.")
+     o1_puan=o1_puan+o1_tur_puan
+
+
+     if o1_tur_puan>=100 or o1_puan>=100:
+          c=0
+          print("Kazandınız. Toplam puanınız: ",o1_puan, "\nBilgisayarın kazandığı toplam puan: ", pc_puan)
+          print("Tebrikler.")
+     else:
+          print("Toplam puanınız: :",o1_puan)
+          print("_____________________________________________________________________________")
+          print("\nSıra bilgisayara geçti.")
+          
+          
+          
+          
+#Bilgisayar Hamleleri                             
+           
+          başla=input("Bilgisayarın tur başı 20 puanlık stratejisi için (1) \nBilgisayarın tur başı 30 puanlık stratejisi için (2) \nBilgisayarın tur başı (20 + 1. oyuncu puanı)/6 puanlık stratejisi için (3) \nBilgisayarın tur başı 12 puanlık stratejisi için (4)")
+          print("")  
+          
+#1. strateji                    
+          if başla=="1":
+            pc_tur_puan = 0
+            zar = 0
+            b = 1
+            while zar!=1 and b==1 and (pc_tur_puan<20):
+             zar=random.randint(1,6)
+             if zar!=1:
+              pc_tur_puan=zar+pc_tur_puan
+              print("Bilgisayarın attığı zar: ",zar, "Bilgisayarın tur puanı: ", pc_tur_puan)
+              b=1
+             else:
+              print("Bilgisayarın attığı zar 1 geldi. Bilgisayar tur puan kazanamadı. Sıra sizde.")
+              b=0 
+              pc_tur_puan=0              
+            pc_puan=pc_tur_puan + pc_puan
+               
+            if pc_puan>=100:
+                c=0
+                print("Bilgisayar kazandı") 
+                print("Bilgisayarın toplam puanı: ",pc_puan,"\n Sizin toplam puanınız: " ,o1_puan)
+                
+            elif pc_puan<100:
+                print("Bilgisayarın toplam puanı: ",pc_puan)
+                print("_____________________________________________________________________________")
+                print("\nSıra size geçti.")
+                c=1
+                d=1
+                b=0
+                 
+
+            
+#2. strateji              
+          if başla=="2":
+            pc_tur_puan = 0
+            zar = 0
+            b = 1
+            while zar!=1 and b==1 and (pc_tur_puan<30):
+             zar=random.randint(1,6)
+             if zar!=1:
+              pc_tur_puan=zar+pc_tur_puan
+              print("Bilgisayarın attığı zar: ",zar, "Bilgisayarın tur puanı: ", pc_tur_puan)
+              b=1
+             else:
+              print("Bilgisayarın attığı zar 1 geldi. Bilgisayar tur puan kazanamadı. Sıra sizde.")
+              b=0 
+              pc_tur_puan=0              
+            pc_puan=pc_tur_puan + pc_puan
+               
+            if pc_puan>=100:
+                c=0
+                print("Bilgisayar kazandı") 
+                print("Bilgisayarın toplam puanı: ",pc_puan,"\n Sizin toplam puanınız: " ,o1_puan)
+                
+            elif pc_puan<100:
+                print("Bilgisayarın toplam puanı: ",pc_puan)
+                print("_____________________________________________________________________________")
+                print("\nSıra size geçti.")
+                c=1
+                 
+#3. strateji                           
+          if başla=="3":
+            pc_tur_puan = 0
+            zar = 0
+            b = 1
+            while zar!=1 and b==1 and (20 + o1_puan/6):
+             zar=random.randint(1,6)
+             if zar!=1:
+              pc_tur_puan=zar+pc_tur_puan
+              print("Bilgisayarın attığı zar: ",zar, "Bilgisayarın tur puanı: ", pc_tur_puan)
+              b=1
+             else:
+              print("Bilgisayarın attığı zar 1 geldi. Bilgisayar tur puan kazanamadı. Sıra sizde.")
+              b=0 
+              pc_tur_puan=0              
+            pc_puan=pc_tur_puan + pc_puan
+               
+            if pc_puan>=100:
+                c=0
+                print("Bilgisayar kazandı") 
+                print("Bilgisayarın toplam puanı: ",pc_puan,"\n Sizin toplam puanınız: " ,o1_puan)
+                
+            elif pc_puan<100:
+                print("Bilgisayarın toplam puanı: ",pc_puan)
+                print("_____________________________________________________________________________")
+                print("\nSıra size geçti.")
+                c=1
+                
+            
+#4. strateji                           
+          if başla=="4":
+            pc_tur_puan = 0
+            zar = 0
+            b = 1
+            while zar!=1 and b==1 and (pc_tur_puan<12):
+             zar=random.randint(1,6)
+             if zar!=1:
+              pc_tur_puan=zar+pc_tur_puan
+              print("Bilgisayarın attığı zar: ",zar, "Bilgisayarın tur puanı: ", pc_tur_puan)
+              b=1
+             else:
+              print("Bilgisayarın attığı zar 1 geldi. Bilgisayar tur puan kazanamadı. Sıra sizde.")
+              b=0 
+              pc_tur_puan=0              
+            pc_puan=pc_tur_puan + pc_puan
+               
+            if pc_puan>=100:
+                c=0
+                print("Bilgisayar kazandı") 
+                print("Bilgisayarın toplam puanı: ",pc_puan,"\n Sizin toplam puanınız: " ,o1_puan)
+                
+            elif pc_puan<100:
+                print("Bilgisayarın toplam puanı: ",pc_puan)
+                print("_____________________________________________________________________________")
+                print("\nSıra size geçti.")
+                c=1
+                 
+
+
+
+#############################################################
+#2. Mod: İki kişilik oyun 
+
+if mod=="2" or mod=="iki":    
+#1. Oyuncu hamleleri:
+ oyuncu1 = input("1. oyuncunun ismini giriniz: ")   
+ oyuncu2 = input("2. oyuncunun ismini giriniz: ")   
+ print("_____________________________________________________________________________")
+
+ if başla=="y" or başla=="Y":   
+  while c==1:
+     zar=0
+     o1_tur_puan=0
+     d=1
+     while zar!=1 and d==1:
+       zar=random.randint(1, 6)
+       if zar!=1:
+        o1_tur_puan=zar+o1_tur_puan
+        print(oyuncu1, "adlı oyuncunun attığı zar: ",zar, "\nBu oyuncu bu turda şuana kadar :", o1_tur_puan, "kadar puan topladı.")   
+        print("")
+        başla=input("1. oyuncu, Zar atmaya devam etmek istiyorsan (y) \nBu tur kazandığınız puanları alıp zar atma sırasının 2. oyuncuya geçmesini istiyorsanız (n)")
+        print("")
+        print("------------------------------------------------------------------------------")
+        if başla=="y" or başla=="Y": 
+         d=1
+        else:
+         d=0
+       else:
+         o1_tur_puan=0
+         print(oyuncu1, "Attığınız zar 1 geldi. Bu tur puan kazanamadınız. Zar atma sırası şu oyuncuya geçti: ", oyuncu2)
+         d=0
+     o1_puan=o1_puan+o1_tur_puan
+
+
+     if o1_tur_puan>=100 or o1_puan>=100:
+          c=0
+          print("Oyunu kazanan:", oyuncu1,"\n", oyuncu1, "adlı oyuncunun toplam puanı: ",o1_puan,"\n",oyuncu2,"adlı oyuncunun toplam puanı: ", o2_puan)
+          print("Tebrikler ", oyuncu1)
+     else:
+         print(oyuncu1, "adlı oyuncunun toplam puanı: :",o1_puan)
+         print("_____________________________________________________________________________")
+         print("\nSıra şu oyuncuya geçti:" ,oyuncu2, "\n" ,oyuncu2, "adlı oyuncunun şuana kadar ki toplam puanı: ", o2_puan)
+                  
+         
+#2. Oyuncu Hamleleri
+         print("")
+         o2_tur_puan=0
+         b=1
+         while zar!=1 and b==1:
+            zar=random.randint(1,6)
+            if zar!=1:
+             o2_tur_puan=zar+o2_tur_puan
+             print(oyuncu2, "adlı oyuncunun attığı zar: ",zar, "\nBu oyuncu bu turda şuana kadar :", o2_tur_puan, "kadar puan topladı.")   
+             print("")
+             print("------------------------------------------------------------------------------")
+             başla=input("2. oyuncu, zar atmaya devam etmek istiyorsan (y) \nBu tur kazandığınız puanları alıp zar atma sırasının 1. oyuncuya geçmesini istiyorsanız (n)")
+             print("")
+             if başla=="y" or başla=="Y": 
+              b=1
+             else:
+              b=0
+            else:
+              o2_tur_puan=0
+              print(oyuncu2, "Attığınız zar 1 geldi. Bu tur puan kazanamadınız. Zar atma sırası şu oyuncuya geçti: ", oyuncu1)
+              print("")
+              b=0
+         o2_puan=o2_puan+o2_tur_puan
+
+
+
+         if o2_tur_puan>=100 or o2_puan>=100:
+              c=0
+              print("Oyunu kazanan:", oyuncu2,"\n", oyuncu2, "adlı oyuncunun toplam puanı: ",o1_puan,"\n",oyuncu1,"adlı oyuncunun toplam puanı: ", o1_puan)
+              print("Tebrikler",oyuncu2)
+         else:
+              print(oyuncu2, "adlı oyuncunun toplam puanı: :",o2_puan)
+              print("_____________________________________________________________________________")
+              print("\nSıra şu oyuncuya geçti:" ,oyuncu1, "\n" ,oyuncu1, "adlı oyuncunun şuana kadar ki toplam puanı: ", o1_puan)
+              c=1
+
+
+#############################################################
+#3. Mod: Tek kişilik oyun                
+
+
+if mod=="3" or mod=="üç":    
+ if başla=="y" or başla=="Y":   
+    while c==1:
+     zar=0
+     o1_tur_puan=0
+     d=1
+     while zar!=1 and d==1:
+       zar=random.randint(1, 6)
+       if zar!=1:
+        o1_tur_puan=zar+o1_tur_puan
+        print("")
+        print("Attığınız zar:", zar)
+        print("Bu turda şu kadar puan topladınız: ", o1_tur_puan)
+        başla=input("Zar atmaya devam etmek istiyorsan (y) \nBu tur kazandığınız puanları alıp yeni bir tura geçmek istiyorsanız(n)")
+        if başla=="y" or başla=="Y": 
+         print("------------------------------------------------------------------------------")
+         d=1
+        else:
+         d=0
+       else:
+         o1_tur_puan=0
+         print("Attığınız zar 1 geldi. Bu tur puan kazanamadınız.")
+     o1_puan=o1_puan+o1_tur_puan
+
+
+     if o1_tur_puan>=100 or o1_puan>=100:
+          c=0
+          print("Kazandınız. Toplam puanınız: ",o1_puan)
+          print("Tebrikler.")
+     else:
+          print("Toplam puanınız: :",o1_puan)
+          print("_____________________________________________________________________________")        
+          print("Yeni tura geçtiniz.")
+         
+
+##################################################################
+#kurallar
+
+if mod=="4" or mod=="dört":    
+ print("Oyunumuz 3 farklı modda oynanır. Bunlar bilgisayara karşı, 2 kişilik ve tek kişilik modlardır.")
+ print("Oyunun amacı şu şekildedir:")
+ print("Oyuna her zaman 1. oyuncu başlar. Oyuncu zar atar ve önünde 2 farklı seçenek vardır. Bu seçeneklerden biri atılan zarın 1 dışında bir sayı olması veya bu atılan zarın 1 olmasıdır.")
+ print("Atılan zar 1'den farklı bir zar ise bu atılan zarın değeri kadar o an oynadığı tura puan ilave eklenir ve oyuncuya 2 seçenek sunulur. Bu seçenekler oyuncunun, 1 dışında attığı her zarda sunulur.")
+ print("1. seçenek; Devam seçeneği. Eğer devam seçeneğini seçerse oyuncuya tekrar zar atma hakkı doğar ve tekrar zar atar.")
+ print("2. seçenek; Tamam seçeneği. Eğer tamam seçeneğini seçerse oyuncunun o turda kazandığı bütün puanlar toplam puanına yazılır ve tur puanı 0lanır.")
+ print("Eğer oyunculardan herhangi biri, herhangi bir anda 1 zarını atarsa o tur kazandığı puan 0'lanır ve zar atma sırası rakibine geçer.")
+ print("Oyun bu şekilde, yarışmacılardan herhangi birinin toplam puanı 100 oluncaya kadar devam eder.")
+ sys.exit() 
+
+ 
+ 
