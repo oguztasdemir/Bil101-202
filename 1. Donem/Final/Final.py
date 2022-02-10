@@ -9,7 +9,7 @@ def reverseList(L):
 
 
 """
-#1. soru (deneme)
+#1. soru 2. yöntem
 def reverseList(L): 
     L.reverse() 
     return L
@@ -66,7 +66,7 @@ def maliyet(S,i):
 
 
 """
-#4. soru (deneme)
+#4. soru 2. yöntem
 def maliyet(S,i):
     M = [[10,36,22,15,62],
         [12,35,20,12,66],
