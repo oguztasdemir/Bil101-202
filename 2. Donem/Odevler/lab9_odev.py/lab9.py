@@ -1,3 +1,5 @@
+### kendi yorum satırlarımdır.
+
 class Dosya():
     def __init__(self,dosya_adi):
         #Dosya sınıfının yapıcı fonksiyonudur.
@@ -81,7 +83,7 @@ print('Dosyanın başlığı: ',dosya_nesnem.dosya_baslik())
 
 
 
-###hocam bu kısmı siz göndermişsiniz, ben direkt kod içerisinde gerekli yerlerde bu kodları belirttim o yüzden görünmez metine alıyorum
+### Clasroom üzerindeki ek kodlar ve bilgiler
 """
 if __name__ == "__main__":
 # Tanımladığımız Dosya sınıfını test etmek için kodlarımızı bu bölüme yazacağız. Bazılarının örneği aşağıdaki gibi yazılmıştır.
